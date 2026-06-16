@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "sfi_database.db")
-DATASETS_DIR = os.environ.get("DATASETS_DIR", os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets"))
+DATASETS_DIR = os.environ.get("DATASETS_DIR", os.path.join(os.path.dirname(__file__), "datasets"))
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)

@@ -545,7 +545,7 @@ def get_cached_analytics():
         
     try:
         import pandas as pd
-        datasets_dir = os.environ.get("DATASETS_DIR", os.path.join(os.path.dirname(os.path.dirname(__file__)), "datasets"))
+        datasets_dir = os.environ.get("DATASETS_DIR", os.path.join(os.path.dirname(__file__), "datasets"))
         comp_csv = os.path.join(datasets_dir, "Comprehensive_Banking_Database.csv")
         cust_csv = os.path.join(datasets_dir, "Bank_Customer_Data.csv")
         tx_csv = os.path.join(datasets_dir, "Bank_Transacation_Data.csv")

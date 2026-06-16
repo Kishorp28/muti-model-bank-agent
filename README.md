@@ -104,9 +104,9 @@ The backend is a lightweight FastAPI web service and can be hosted on **Render**
 
 ## 📁 Repository Structure
 ```
-├── backend/               # FastAPI application, agent engine, and database logic
+├── backend/               # FastAPI application, agent engine, database logic
+│   └── datasets/          # CSV database records for system modeling & simulation
 ├── sbi-frontend/          # Next.js web interface and interactive dashboard
-├── datasets/              # CSV database records for system modeling & simulation
 ├── docker-compose.yml     # Multi-container service definitions
 ├── run_local.bat          # One-click startup script for CMD
 └── run_local.ps1          # One-click startup script for PowerShell
