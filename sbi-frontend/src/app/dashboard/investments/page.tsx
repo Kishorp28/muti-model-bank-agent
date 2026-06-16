@@ -20,7 +20,7 @@ interface FundRecommendation {
 
 export default function InvestmentsPage() {
   const { selectedCustomerId, customerDetails, language, theme } = useSFIA();
-  const t = translations[language];
+  const [mounted, setMounted] = useState(false);
 
   // Sliders states
   const [monthlySip, setMonthlySip] = useState<number>(2000);
@@ -30,6 +30,20 @@ export default function InvestmentsPage() {
   // Action state simulation
   const [isSettingUp, setIsSettingUp] = useState(false);
   const [setupSuccess, setSetupSuccess] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
+
+  const t = translations[language];
 
   // Set default sliders based on profile when customer changes
   useEffect(() => {

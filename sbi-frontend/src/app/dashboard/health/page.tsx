@@ -23,9 +23,23 @@ interface Policy {
 
 export default function HealthReportPage() {
   const { selectedCustomerId, auditResult, language } = useSFIA();
-  const t = translations[language];
+  const [mounted, setMounted] = useState(false);
   const [policies, setPolicies] = useState<Policy[]>([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
+
+  const t = translations[language];
 
   useEffect(() => {
     const fetchPolicies = async () => {

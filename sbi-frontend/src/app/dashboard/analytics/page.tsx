@@ -17,9 +17,23 @@ interface AnalyticsData {
 
 export default function AnalyticsPage() {
   const { language } = useSFIA();
-  const t = translations[language];
+  const [mounted, setMounted] = useState(false);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
+
+  const t = translations[language];
 
   const fallbackData: AnalyticsData = {
     total_aum: 25302854.59,

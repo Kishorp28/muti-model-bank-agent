@@ -23,6 +23,19 @@ export default function OverviewDashboard() {
     language
   } = useSFIA();
 
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
+
   const t = translations[language];
 
   const getScoreColor = (score: number) => {
@@ -127,8 +140,8 @@ export default function OverviewDashboard() {
                 stroke="#22d3ee" 
                 strokeWidth="2.5" 
                 strokeLinecap="round"
-                transform={`transform-origin-50-50 rotate(${getGaugeProps().angle} 50 50)`}
-                style={{ transform: `rotate(${getGaugeProps().angle}deg)`, transformOrigin: "50px 50px" }}
+                transform={`rotate(${getGaugeProps().angle} 50 50)`}
+                style={{ transformOrigin: "50px 50px" }}
                 className="transition-transform duration-1000 ease-out"
               />
               <defs>
