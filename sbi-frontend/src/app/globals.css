@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary-bg: #03060c;
+  --color-sidebar-bg: #060c17;
+  --color-card-bg: #0b1329;
+  --color-card-hover-bg: #121e3d;
+  --color-table-header-bg: #0f1c35;
+  --color-primary-border: #1e293b;
+  
+  --color-primary-text: #f8fafc;
+  --color-secondary-text: #cbd5e1;
+  --color-muted-text: #64748b;
+  
+  /* Compatibility aliases for SVG and Recharts rendering */
+  --bg-primary: var(--color-primary-bg);
+  --bg-sidebar: var(--color-sidebar-bg);
+  --bg-card: var(--color-card-bg);
+  --border-primary: var(--color-primary-border);
+  --text-primary: var(--color-primary-text);
+  --text-secondary: var(--color-secondary-text);
+  --text-muted: var(--color-muted-text);
+  
+  --font-scale-factor: 1.0;
+}
+
+.light-theme {
+  --color-primary-bg: #f1f5f9;
+  --color-sidebar-bg: #ffffff;
+  --color-card-bg: #ffffff;
+  --color-card-hover-bg: #f8fafc;
+  --color-table-header-bg: #cbd5e1;
+  --color-primary-border: #cbd5e1;
+  
+  --color-primary-text: #0f172a;
+  --color-secondary-text: #334155;
+  --color-muted-text: #64748b;
+
+  /* Compatibility aliases for SVG and Recharts rendering */
+  --bg-primary: var(--color-primary-bg);
+  --bg-sidebar: var(--color-sidebar-bg);
+  --bg-card: var(--color-card-bg);
+  --border-primary: var(--color-primary-border);
+  --text-primary: var(--color-primary-text);
+  --text-secondary: var(--color-secondary-text);
+  --text-muted: var(--color-muted-text);
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  font-size: calc(16px * var(--font-scale-factor, 1)) !important;
+}
+
+body {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+

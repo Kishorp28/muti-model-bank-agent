@@ -1,0 +1,38 @@
+# Local Environment Configuration
+.env
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases
+*.db
+backend/sfi_database.db
+
+# Secrets & Service Accounts
+*service-account.json
+google-services.json
+firebase-service-account.json
+*.pem
+
+# Node dependencies and build caches
+node_modules/
+.next/
+out/
+build/
+.vercel/
+
+# Python compiled bytecode & cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
