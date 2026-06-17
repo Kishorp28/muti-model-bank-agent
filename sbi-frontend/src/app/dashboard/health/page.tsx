@@ -31,14 +31,6 @@ export default function HealthReportPage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
-      </div>
-    );
-  }
-
   const t = translations[language];
 
   useEffect(() => {
@@ -61,6 +53,14 @@ export default function HealthReportPage() {
       fetchPolicies();
     }
   }, [selectedCustomerId]);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return "text-emerald-450";

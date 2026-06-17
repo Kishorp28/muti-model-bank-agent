@@ -25,14 +25,6 @@ export default function AnalyticsPage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
-      </div>
-    );
-  }
-
   const t = translations[language];
 
   const fallbackData: AnalyticsData = {
@@ -76,6 +68,14 @@ export default function AnalyticsPage() {
   useEffect(() => {
     fetchAnalytics();
   }, []);
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 p-8 flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan-400"></div>
+      </div>
+    );
+  }
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
